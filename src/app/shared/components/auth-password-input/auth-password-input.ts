@@ -1,4 +1,4 @@
-import { Component, Input, signal, WritableSignal } from '@angular/core';
+import { Component, input, Input, InputSignal, signal, WritableSignal } from '@angular/core';
 
 @Component({
   selector: 'app-auth-password-input',
@@ -10,10 +10,10 @@ export class AuthPasswordInput {
     seePassword: WritableSignal<boolean> = signal(false);
 
     //Inputs
-    @Input({required: true}) label!: string;
-    @Input({required: true}) id!: string;
-    @Input({required: true}) name!: string;
-    @Input() placeholder: string = "********";
+    label: InputSignal<string> = input.required();
+    id: InputSignal<string> = input.required();
+    name: InputSignal<string> = input.required();
+    placeholder: InputSignal<string> = input("********");
     
 
   togglePasswordVisabilty(){

@@ -1,4 +1,4 @@
-import { Component, Input, signal, WritableSignal } from '@angular/core';
+import { Component, input, Input, InputSignal, signal, WritableSignal } from '@angular/core';
 
 @Component({
   selector: 'app-auth-input',
@@ -7,9 +7,9 @@ import { Component, Input, signal, WritableSignal } from '@angular/core';
   styleUrl: './auth-input.css',
 })
 export class AuthInput {
-  @Input({required: true}) label!: string;
-  @Input({required: true}) id!: string;
-  @Input() type: string = 'text';
-  @Input({required: true}) name!: string;
-  @Input({required: true}) placeholder!: string;
+  label: InputSignal<string> = input.required();
+  id: InputSignal<string> = input.required();
+  type: InputSignal<string> = input('text');
+  name: InputSignal<string> = input.required();
+  placeholder: InputSignal<string> = input.required();
 }
