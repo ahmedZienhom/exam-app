@@ -1,0 +1,14 @@
+<div class="flex flex-col w-[452px] gap-4">
+    <div class="pb-6 gap-2.5">
+        <h2 class="font-bold text-3xl">Reset Password</h2>
+        <p class="font-geist-mono">Create a new strong password for your account.</p>
+    </div>
+    <app-auth-password-input label="New Password" id="new-password" name="new-password"></app-auth-password-input>
+    <app-auth-password-input label="Confirm New Password" id="confirm-password" name="confirm-password"></app-auth-password-input>
+    <div class="flex flex-col gap-9 pt-6">
+        <div class="w-full">
+            <app-auth-button buttonText="Reset Password"></app-auth-button>
+        </div>
+        <p class="text-center font-geist-mono font-sm">Don’t have an account? <a routerLink="/register" routerLinkActive="router-link-active"  class="text-blue-600">Create yours</a></p>
+    </div>
+</div>

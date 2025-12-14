@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { StaticView } from '../../comonents/static-view/static-view';
+import { StaticView } from '../../components/static-view/static-view';
 
 @Component({
   selector: 'app-auth-layout',

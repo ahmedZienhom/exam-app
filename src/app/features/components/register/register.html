@@ -1,0 +1,68 @@
+<div class="flex flex-col gap-4 w-[452px]">
+    <h2 class="font-bold text-3xl">Create Account</h2>
+    <div class="flex gap-2.5">
+        <div class="w-full">
+            <app-auth-input label="First Name" id="firstName" name="firstName" placeholder="Ahmed"></app-auth-input>
+        </div>
+        <div class="w-full">
+            <app-auth-input label="Last Name" id="lastName" name="lastName" placeholder="Abdullah"></app-auth-input>
+        </div>
+    </div>
+    <app-auth-input label="Username" id="username" name="username" placeholder="user123"></app-auth-input>
+    <app-auth-input label="Email" id="email" name="email" placeholder="user@example.com"></app-auth-input>
+    <div class="flex flex-col gap-1.5">
+        <label class="font-geist-mono font-medium text-lg" for="phone">Phone Number</label>
+            <div class="border border-gray-200 p-2.5 h-[46px] w-full flex items-center gap-2">
+                <p-select
+                [options]="countries()"
+                    [ngModel]="selectedCountry()"
+                    (ngModelChange)="onCountryChange($event)"
+                    optionLabel="iso"
+                    [showClear]="false"
+                    class="font-geist-mono min-w-36"
+                    [filter]="false"
+                >
+                    <ng-template let-country pTemplate="item">
+                    <div class="flex items-center gap-2 font-geist-mono p-2 bg-white hover:bg-gray-100">
+                        <img [src]="country.flag" class="w-6 h-4 object-cover" />
+                        <span>{{ country.iso }} ({{ country.code }})</span>
+                    </div>
+                    </ng-template>
+
+                    <ng-template let-country pTemplate="selectedItem">
+                    <div class="flex items-center gap-2 font-geist-mono">
+                        <img [src]="country.flag" class="w-6 h-4 object-cover" />
+                        <span>{{ country.iso }} ({{ country.code }})</span>
+                    </div>
+                    </ng-template>
+                    <ng-template #dropdownicon>
+                        <div class="flex flex-col items-center justify-center text-xs">
+                            <i class="fa-solid fa-angle-up"></i>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </div>
+                    </ng-template>
+
+            </p-select>
+            <input
+                class="w-full phone-input outline-none"
+                id="phone"
+                name="phone"
+                type="tel"
+                inputmode="numeric"
+                [attr.maxlength]="selectedCountry().max"
+                [placeholder]="phonePlaceholder()"
+                required
+                [ngModel]="phoneNumber()"
+                (ngModelChange)="onPhoneNumberChange($event)"
+            />
+            </div>
+    </div>
+    <app-auth-password-input label="Password" id="password" name="password"></app-auth-password-input>
+    <app-auth-password-input label="Confirm Password" id="confirmPassword" name="confirmPassword"></app-auth-password-input>
+    <div class="pt-6 gap-9 flex flex-col justify-between items-center">
+        <div class="w-full">
+            <app-auth-button buttonText="Create Account"></app-auth-button>
+        </div>
+        <p class="text-center text-sm text-gray-500">Already have an account? <a routerLink="/login" routerLinkActive="router-link-active"  class="text-blue-600 cursor-pointer">Login</a></p>
+    </div>
+</div>
