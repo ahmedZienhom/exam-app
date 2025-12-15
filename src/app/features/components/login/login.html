@@ -1,0 +1,10 @@
+<div class="flex flex-col gap-4 w-[452px]">
+    <h2 class="font-bold text-3xl">Login</h2>
+    <app-auth-input label="Email" id="email" name="email" placeholder="user@example.com"></app-auth-input>
+    <app-auth-password-input label="Password" id="password" name="password"></app-auth-password-input>
+    <a routerLink="/forget" routerLinkActive="router-link-active"  class="text-blue-600 font-geist-mono font-medium text-end text-sm cursor-pointer">Forgot your password?</a>
+    <div class="pt-6 gap-9 flex flex-col justify-between items-center">
+        <app-auth-button buttonText="Login" class="w-full"></app-auth-button>
+        <p class="font-geist-mono font-medium text-sm">Don’t have an account? <a routerLink="/register" class="text-blue-600 cursor-pointer">Create Yours</a></p>
+    </div>
+</div>

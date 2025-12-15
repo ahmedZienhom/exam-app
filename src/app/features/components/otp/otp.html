@@ -1,0 +1,37 @@
+<div class="w-[452px] flex flex-col gap-10">
+    <div class="size-10 border-[1.5px] border-gray-200 flex items-center justify-center">
+        <i class="fa-solid fa-arrow-left-long"></i>
+    </div>
+    <div class="flex flex-col gap-4">
+        <div class="gap-2.5 flex flex-col pb-6">
+            <h2 class="font-bold text-3xl">Verify OTP</h2>
+            <p class="font-geist-mono">Please enter the 6-digits code we have sent to:<br> user@example.com. <a class="text-blue-600">Edit</a></p>
+        </div>
+        <div class="flex flex-col gap-6 justify-center">
+            <p-inputotp [(ngModel)]="otp" [integerOnly]="true" [length]="6" class="!gap-2.5 justify-center">
+                <ng-template #input let-token let-events="events">
+                    <input
+                        type="text"
+                        inputmode="numeric"
+                        maxlength="1"
+                        (input)="events.input($event)"
+                        (keydown)="events.keydown($event)"
+                        [attr.value]="token"
+                        class="w-10 h-10 border border-gray-200 text-center outline-none focus:border-blue-600 focus:text-blue-600"
+                    />
+                </ng-template>
+            </p-inputotp>
+            @if(counter() > 0){
+                <p class="font-geist-mono text-center">You can request another code in: {{counter()}}s</p>
+            }@else{
+                <p class="font-geist-mono text-center">Didn’t receive the code? <a class="text-blue-600">Resend</a></p>
+            }
+        </div>
+        <div class="flex flex-col pt-6 gap-9">
+            <div class="w-full">
+                <app-auth-button routerLink="/reset" routerLinkActive="router-link-active"  buttonText="Verify Code"></app-auth-button>
+            </div>
+            <p class="font-geist-mono text-center">Don’t have an account? <a class="text-blue-600">Sign Up</a></p>
+        </div>
+    </div>
+</div>
